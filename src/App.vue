@@ -1,26 +1,37 @@
 <template>
   <div>
     <h1>Pokemon Calculator</h1>
-    <SearchBar />
-    <img
-      src="https://img.pokemondb.net/sprites/black-white/normal/chandelure.png"
-      alt="Chandelure_Sprite"
-    />
-    <PokemonTyping />
+    <SearchBar v-on:pokemon-search="formatPokemonData" />
+    <h2>{{ this.pokemonName }}</h2>
+    <img src="./assets/pokeBall.png" />
+    <PokemonTypes v-bind:pokemon-types="pokemonTypes" />
     <TypeDefenses />
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar";
-import PokemonTyping from "./components/PokemonTyping";
 import TypeDefenses from "./components/TypeDefenses";
+import PokemonTypes from "./components/PokemonTypes";
 export default {
   name: "App",
   components: {
     SearchBar,
-    PokemonTyping,
     TypeDefenses,
+    PokemonTypes,
+  },
+  data() {
+    return {
+      pokemonData: "",
+      pokemonName: "",
+      pokemonTypes: [],
+    };
+  },
+  methods: {
+    formatPokemonData(pokemonData) {
+      this.pokemonName = pokemonData.name;
+      this.pokemonTypes = pokemonData.types;
+    },
   },
 };
 </script>
@@ -30,7 +41,7 @@ div {
   margin: auto;
   text-align: center;
   background-color: rgb(255, 255, 255);
-  width: 50%;
+  width: 80%;
   padding-bottom: 10px;
 }
 h1 {
@@ -38,8 +49,6 @@ h1 {
   margin-top: 150px;
 }
 img {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  transform: scale(2);
+  max-width: 20%;
 }
 </style>
