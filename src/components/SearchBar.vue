@@ -1,16 +1,21 @@
 <template>
   <div>
     <form>
-      <input type="text" name="Title" placeholder="   Search Pokemon..." class="search">
-      <input type="submit" value="Submit" class="btn">
+      <input
+        type="text"
+        name="Title"
+        placeholder="   Search Pokemon..."
+        class="search"
+      />
+      <input type="submit" value="Submit" class="btn" />
     </form>
-  </div>  
+  </div>
 </template>
 
 <script>
 export default {
-  name: "SearchBar"
-}
+  name: "SearchBar",
+};
 </script>
 
 <style scoped>
@@ -23,6 +28,7 @@ export default {
   background-color: rgb(221, 221, 221);
   border-radius: 5px 0px 0px 5px;
 }
+
 .btn {
   width: 100px;
   height: 30px;
@@ -31,5 +37,5 @@ export default {
   border: 0px;
   background-color: rgb(167, 167, 167);
   border-radius: 0px 5px 5px 0px;
-}  
+}
 </style>

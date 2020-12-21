@@ -5,21 +5,21 @@
       <li>Ghost</li>
       <li>Fire</li>
     </ul>
-  </div>    
+  </div>
 </template>
 
 <script>
 export default {
-  name: "PokemonTyping"
-}
+  name: "PokemonTyping",
+};
 </script>
 
 <style scoped>
-  ul {
+ul {
   list-style-type: none;
   padding: 0;
 }
-  li {
+li {
   display: inline-block;
   width: 100px;
   padding-top: 5px;
