@@ -1,15 +1,17 @@
 <template>
   <div>
-    <h2>Typing</h2>
-    <ul>
-      <li>Ghost</li>
-      <li>Fire</li>
+    <h2>Types</h2>
+    <ul id="example-1">
+      <li v-for="types in pokemonTypes" :key="types.name">
+        <h2>{{ types.type.name }}</h2>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["pokemonTypes"],
   name: "PokemonTyping",
 };
 </script>

@@ -1,10 +1,11 @@
 <template>
   <div>
-    <form>
+    <form @submit="searchPokemon">
       <input
         type="text"
-        name="Title"
-        placeholder="   Search Pokemon..."
+        v-model="pokemonName"
+        name="pokemon"
+        placeholder="Search Your Favorite Pokemon!"
         class="search"
       />
       <input type="submit" value="Submit" class="btn" />
@@ -13,8 +14,31 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      pokemonName: "",
+    };
+  },
+  methods: {
+    searchPokemon(e) {
+      e.preventDefault();
+      const requestPokemon = async () => {
+        try {
+          const resp = await axios.get(
+            `https://pokeapi.co/api/v2/pokemon/${this.pokemonName}`
+          );
+          const pokemonData = resp.data;
+          this.$emit("pokemon-search", pokemonData);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      requestPokemon();
+    },
+  },
 };
 </script>
 
