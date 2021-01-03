@@ -12,7 +12,7 @@
 <script>
 export default {
   props: ["pokemonTypes"],
-  name: "PokemonTyping",
+  name: "PokemonTypes",
 };
 </script>
 
